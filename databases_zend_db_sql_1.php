@@ -1,7 +1,10 @@
 <?php
 include 'init_autoloader.php';
 
-$sql = new Zend\Db\Sql\Select('tablename');
-$sql->where(new Zend\Db\Sql\Predicate\In('tablename.foo',
+$adapter = new Zend\Db\Adapter\Adapter(include 'database_params.php');
+$sql = new Zend\Db\Sql\Sql($adapter);
+$select = $sql->select('tablename');
+$select->where(new Zend\Db\Sql\Predicate\In('tablename.foo',
 		array(1, 2)));
-var_dump($sql->getSqlString());
+echo $sql->getSqlStringForSqlObject($select, $adapter->getPlatform());
+echo PHP_EOL;

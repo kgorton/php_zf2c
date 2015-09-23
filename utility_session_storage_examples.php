@@ -6,10 +6,8 @@ use Zend\Session\SessionManager;
 use Zend\Session\Container;
 
 echo 'ArrayStorage -----------------------' . PHP_EOL;
-$populateStorage = array('foo' => 'bar');
-$storage = new ArrayStorage($populateStorage);
 $manager1 = new SessionManager();
-$manager1->setStorage($storage); 
+$manager1->setStorage(new ArrayStorage()); 
 
 $container1 = new Container('test', $manager1);
 $container1->test = 'TEST';

@@ -4,9 +4,8 @@
 include 'init_autoloader.php';
 
 $sem = new Zend\EventManager\SharedEventManager();
-$sem->attach('UserService', 'register', function() { echo 'registered!'; });
+$sem->attach('*', 'register', function() { echo 'registered!'; });
 $evm = new Zend\EventManager\EventManager();
-$evm->setSharedManager($sem);
 // NOTE: uncomment line below and see what happens
-//$evm->addIdentifiers('UserService');
+//$evm->setSharedManager($sem);
 $evm->trigger('register');

@@ -8,17 +8,14 @@ use Zend\Validator\StringLength;
 $input= new Input('foo');
 $input->getFilterChain()
       ->attachByName('stringtrim')
-      ->attachByName('alpha');
+      ->attachByName('alpha')
+      ->attachByName('word\camelCaseToDash');
 
 $input->getValidatorChain()
       ->attach(new StringLength(array('options'=> array('min' => 1, 'max' => 255))));
       
 $inputFilter= new InputFilter();
-$inputFilter->add($input)
-    ->setData(array(
-        'foo'=>' Bar3 ',
-    )
-);
+$inputFilter->add($input)->setData(array('foo'=>' Foo Bar3 '));
 
 echo "Before: \n ";
 echo $inputFilter->getRawValue('foo') . " \n "; // the output is ' Bar3 '

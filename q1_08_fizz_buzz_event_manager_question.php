@@ -1,4 +1,5 @@
 <?php
+ini_set('display_errors', 1);
 include 'init_autoloader.php';
 
 $evm = new Zend\EventManager\EventManager();

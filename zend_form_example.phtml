@@ -1,0 +1,10 @@
+<div class="login-form">
+<?php $formHelper = new Zend\Form\View\Helper\Form(); ?>
+<?php $rowHelper  = new Zend\Form\View\Helper\FormRow(); ?>
+<?php echo $formHelper->openTag($form); ?>
+<ul>
+<li><?php echo $rowHelper($form->get('name')); ?>
+<li><?php echo $rowHelper($form->get('submit')); ?>
+</ul>
+<?php echo $formHelper->closeTag(); ?>
+</div>
