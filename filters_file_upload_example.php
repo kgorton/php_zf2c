@@ -10,7 +10,8 @@ use Zend\InputFilter\FileInput;
 use Zend\InputFilter\InputFilter;
 use Zend\Http\PhpEnvironment\Request;
 
-// init vars
+// target upload directory
+// be sure to set the appropriate permissions to the php / web server user
 $dir = __DIR__ . '/data';
 
 // Description text input

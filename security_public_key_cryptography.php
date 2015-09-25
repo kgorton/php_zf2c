@@ -1,16 +1,16 @@
 <?php
+// TODO: get this working!
+
 include 'init_autoloader.php';
 
 use Zend\Crypt\PublicKey\Rsa;                                                                                                            
 use Zend\Crypt\PublicKey\RsaOptions;  
 
 // generate a key pair
-$rsa = new RsaOptions(array('pass_phrase' => 'the password is pistachio'));
+$rsaOptions = new RsaOptions(array('pass_phrase' => 'the password is pistachio'));
 
-$rsa->generateKeys(array('private_key_bits' => 2048));
-
-file_put_contents(__DIR__ . '/keys/private.pem', $rsa->getPrivateKey());
-file_put_contents(__DIR__ . '/keys/public.pub',  $rsa->getPublicKey());
+file_put_contents(__DIR__ . '/keys/private.pem', $rsaOptions->getPrivateKey());
+file_put_contents(__DIR__ . '/keys/public.pub',  $rsaOptions->getPublicKey());
 
 // encrypt a string
 $rsa = Rsa::factory(array(
@@ -18,6 +18,8 @@ $rsa = Rsa::factory(array(
   'pass_phrase'   => 'the password is pistachio',
   'binary_output' => false,
 ));                                                                                     
+
+
 $text = 'This is my super awesome secret';                                             
 file_put_contents(__DIR__ . '/keys/cipher_text', $rsa->encrypt($text));
 

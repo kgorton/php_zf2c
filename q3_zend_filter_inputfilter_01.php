@@ -11,8 +11,11 @@ $input->getValidatorChain()->attachByName('InArray', array('haystack' => array('
 $input->getValidatorChain()->attach(new Alnum());
 $input->getFilterChain()->attachByName('StringTrim');
 // NOTE: Alpha(TRUE) sets the "allowWhiteSpace" param
+//       Remove the "TRUE" flag and validation succeeds
+//$input->getFilterChain()->attach(new Alpha());
 $input->getFilterChain()->attach(new Alpha(TRUE));
 
 $input->setValue('Peter 2');
 var_dump($input->isValid());
+var_dump($input->getMessages());
 

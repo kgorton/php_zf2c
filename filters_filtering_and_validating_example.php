@@ -17,8 +17,10 @@ $input->getValidatorChain()
 $inputFilter= new InputFilter();
 $inputFilter->add($input)->setData(array('foo'=>' Foo Bar3 '));
 
-echo "Before: \n ";
-echo $inputFilter->getRawValue('foo') . " \n "; // the output is ' Bar3 '
+echo "Before:";
+echo $inputFilter->getRawValue('foo'); // the output is ' Foo Bar3 '
+echo PHP_EOL;
 
-echo "After: \n ";
-echo $inputFilter->getValue('foo') . " \n "; // the output is 'Bar'
+echo "After:  ";
+echo $inputFilter->getValue('foo'); // the output is 'Foo-Bar'
+echo PHP_EOL;
