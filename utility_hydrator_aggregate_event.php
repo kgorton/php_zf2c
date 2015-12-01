@@ -1,5 +1,4 @@
 <?php
-
 include 'init_autoloader.php';
 
 use Zend\Stdlib\Hydrator\Aggregate\HydrateEvent;
@@ -8,14 +7,8 @@ use Zend\Stdlib\Hydrator\Aggregate\ExtractEvent;
 class Test
 {
     protected $test = 1;
-    public function setTest($test)
-    {
-        $this->test = $test;
-    }
-    public function getTest()
-    {
-        return $this->test;
-    }
+    public function setTest($test) { $this->test = $test; }
+    public function getTest()      { return $this->test;  }
 }
 
 $hydrateListener = function (HydrateEvent $e) { echo 1; echo PHP_EOL; };

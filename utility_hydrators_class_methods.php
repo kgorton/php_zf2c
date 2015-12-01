@@ -12,18 +12,9 @@ class Test
     protected $my_test = 2;
     protected $myTest  = 3;
     
-    public function getTest()
-    {
-        return $this->test;
-    }
-    public function getMy_test()
-    {
-        return $this->my_test;
-    }
-    public function getMyTest()
-    {
-        return $this->myTest;
-    }
+    public function getTest()    { return $this->test;    }
+    public function getMy_test() { return $this->my_test; }
+    public function getMyTest()  { return $this->myTest;  }
 }
 
 $test = new Test();

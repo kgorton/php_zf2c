@@ -14,3 +14,5 @@ $em->attach('test', function() { echo "4"; file_put_contents(FN, "4\n", FILE_APP
 $em->attach('test', function() { echo "5"; file_put_contents(FN, "5\n", FILE_APPEND);}, 5);
 $em->attach('test', function() { echo "6"; file_put_contents(FN, "6\n", FILE_APPEND);}, 6);
 $em->trigger('test', 'test', [], function () { return count(file(FN)) > 3; });
+// NOTE: triggerUntil() is functionally identical ... still there in ZF 2.2 ... deprecated in 2.4
+//$em->triggerUntil('test', 'test', [], function () { return count(file(FN)) > 3; });
