@@ -10,7 +10,8 @@ $validatorChain->attach(new Zend\Validator\StringLength(array ('min' => 7, 'max'
                ->attach(new Zend\I18n\Validator\Alnum());
                
 // Validate the username
-$testNames = array('short!', 'invalid!', 'usernameIsWayTooLong!', 'username_OK');
+//$testNames = array('short!', 'invalid!', 'usernameIsWayTooLong!', 'username_OK');
+$testNames = array('short!');
 foreach ($testNames as $username) {
 	if ($validatorChain->isValid($username)) {
 		echo $username . ' is valid' . PHP_EOL;
