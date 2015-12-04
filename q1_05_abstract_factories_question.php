@@ -1,4 +1,8 @@
 <?php
+// how many abstract factories would be registered?
+// technically NONE because as the code was written there would be a parse error
+// see the ZendSkeletonBased app under "q1_abstract_factories_question"
+
 include 'init_autoloader.php';
 
 class NewConfig extends Zend\ModuleManager\Listener\ConfigListener
@@ -45,6 +49,10 @@ class Bar
 	
 	public function getServiceConfig()
 	{
+        // on the exam question there was 
+        // no "return" and no "array()"
+        // this would cause a parse error
+        // SO ... let's assume this:
 		return array(
 			'abstract_factories' => array(
 				'AbstractBazFactory',
