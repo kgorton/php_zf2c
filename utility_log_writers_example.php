@@ -1,5 +1,6 @@
 <?php
-// Q: which message(s) will NOT appear in "application.log" (choose 2)?
+// TODO: check this one!
+// Q: which message(s) will NOT appear in "application.log" (choose as many as are applicable)?
 // A: (A) 1 (B) 2 (C) 3 (D) 4 (E) 5 (F) 6
 include 'init_autoloader.php';
 
