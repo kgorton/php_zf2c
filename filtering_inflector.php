@@ -1,12 +1,15 @@
 <?php
+// why do you not include ":" for "suffix"?
+// working hypothesis: ':' ==> filter
+
 include 'init_autoloader.php';
 
 // Transform `MixedCase` and `camelCaseText` to another format
 $inflector= new Zend\Filter\Inflector('pages/:page.:suffix');
 $inflector->setRules(
-	array(
-		':page' => array('Word\CamelCaseToDash', 'StringToLower'),
-		'suffix' => 'html',
+    array(
+        ':page' => array('Word\CamelCaseToDash', 'StringToLower'),
+        'suffix' => 'html',
 ));
 $string = 'camelCasedWords';
 $filtered = $inflector->filter(array('page'=> $string));
