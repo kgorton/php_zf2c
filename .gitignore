@@ -1,4 +1,4 @@
 !.gitignore
-data
-vendor
-Not_For_Distrib
+data/
+vendor/
+Not_For_Distrib/
