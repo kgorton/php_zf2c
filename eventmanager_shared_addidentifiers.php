@@ -11,11 +11,14 @@ $sem->attach('UserService', 'register', function() { echo 'registered!';}, 1);
 
 // a generic event manager instance
 // NOTE: uncomment line below and see what happens
-//$evm = new Zend\EventManager\EventManager('UserService');
-$evm = new Zend\EventManager\EventManager();
-$evm->setSharedManager($sem);
+$evm1 = new Zend\EventManager\EventManager('UserService');
+$evm1->setSharedManager($sem);
+$evm1->trigger('register');
+
+$evm2 = new Zend\EventManager\EventManager();
 
 // NOTE: uncomment line below and see what happens
 //$evm->addIdentifiers('UserService');
 //$evm->setIdentifiers('UserService');
-$evm->trigger('register');
+
+$evm2->trigger('register');
