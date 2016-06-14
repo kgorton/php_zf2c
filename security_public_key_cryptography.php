@@ -8,9 +8,15 @@ use Zend\Crypt\PublicKey\RsaOptions;
 
 // generate a key pair
 $rsaOptions = new RsaOptions(array('pass_phrase' => 'the password is pistachio'));
+$rsaOptions->generateKeys(array('private_key_bits' => 2048));
 
 file_put_contents(__DIR__ . '/keys/private.pem', $rsaOptions->getPrivateKey());
 file_put_contents(__DIR__ . '/keys/public.pub',  $rsaOptions->getPublicKey());
+
+echo "Public Key\n";
+echo $rsaOptions->getPublicKey() . PHP_EOL;
+echo "Private Key\n";
+echo $rsaOptions->getPrivateKey() . PHP_EOL;
 
 // encrypt a string
 $rsa = Rsa::factory(array(
@@ -22,6 +28,9 @@ $rsa = Rsa::factory(array(
 
 $text = 'This is my super awesome secret';                                             
 file_put_contents(__DIR__ . '/keys/cipher_text', $rsa->encrypt($text));
+
+echo "Cipher Text\n";
+echo $rsa->encrypt($text) . PHP_EOL;
 
 // decrypt a string
 $rsa = Rsa::factory(array(                                  

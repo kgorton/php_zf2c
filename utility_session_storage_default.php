@@ -1,9 +1,5 @@
 <?php
-
-// TODO: test this!!! see wuzzup
-
-// No need to do session_start(): this is done by
-// the constructor defined in Zend\Session\AbstractContainer
+// shows what is the default storage mechanism
 
 include 'init_autoloader.php';
 
@@ -15,3 +11,4 @@ $a->value = 'ABC';
 var_dump($_SESSION);
 
 echo get_class($a->getManager()->getStorage());
+echo PHP_EOL;

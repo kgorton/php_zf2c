@@ -11,7 +11,7 @@ class Test
     protected $test    = 1;
     protected $my_test = 2;
     protected $myTest  = 3;
-    
+    public $anotherTest = 4;
     public function getTest()    { return $this->test;    }
     public function getMy_test() { return $this->my_test; }
     public function getMyTest()  { return $this->myTest;  }
@@ -21,4 +21,5 @@ $test = new Test();
 $hydrator = new Zend\Stdlib\Hydrator\Aggregate\AggregateHydrator;
 $hydrator->add(new Zend\Stdlib\Hydrator\ClassMethods());
 $hydrator->add(new Zend\Stdlib\Hydrator\Reflection());
+$hydrator->add(new Zend\Stdlib\Hydrator\ObjectProperty());
 Zend\Debug\Debug::dump($hydrator->extract($test));

@@ -7,7 +7,7 @@ include 'init_autoloader.php';
 return array(
     'Welcome' => 'Bienvenue',
     'to'      => 'a',
-    'my'      => ['mon','mes'],
+    'my'      => ['ma','mes'],
     'my2'     => '',
     'house'   => ['maison','maisons'],
     'houses'  => '',
@@ -34,17 +34,17 @@ $evm->attach(Translator::EVENT_MISSING_TRANSLATION, $listenerMissing);
 $evm->attach(Translator::EVENT_NO_MESSAGES_LOADED,  $listenerNotLoaded);
 
 // translate a single message
-printf("%s %s %s %s\n", 
-		$translator->translate('Welcome', 'mystrings', 'fr'),   // Bienvenue
-		$translator->translate('to',      'mystrings', 'fr'),   // a
-		$translator->translatePlural('my',    'my2',    1, 'mystrings', 'fr'),  // mon
-		$translator->translatePlural('house', 'houses', 1, 'mystrings', 'fr')   // maison
+printf("%s %s %s %s\n",
+        $translator->translate('Welcome', 'mystrings', 'fr'),   // Bienvenue
+        $translator->translate('to',      'mystrings', 'fr'),   // a/
+        $translator->translatePlural('my',    'my2',    1, 'mystrings', 'fr'),  // ma
+        $translator->translatePlural('house', 'houses', 1, 'mystrings', 'fr')   // maison
 );
 
 // translate a plural message
-printf("%s %s %s %s\n", 
-		$translator->translate('Welcome', 'mystrings', 'fr'),                   // Bienvenue
-		$translator->translate('to',      'mystrings', 'fr'),                   // a
-		$translator->translatePlural('my',    'my2',    2, 'mystrings', 'fr'),  // mes
-		$translator->translatePlural('house', 'houses', 2, 'mystrings', 'fr')   // maisons
+printf("%s %s %s %s\n",
+        $translator->translate('Welcome', 'mystrings', 'fr'),                   // Bienvenue
+        $translator->translate('to',      'mystrings', 'fr'),                   // a
+        $translator->translatePlural('my',    'my2',    2, 'mystrings', 'fr'),  // mes
+        $translator->translatePlural('house', 'houses', 2, 'mystrings', 'fr')   // maisons
 );

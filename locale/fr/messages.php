@@ -2,7 +2,7 @@
 return array(
     'Welcome' => 'Bienvenue',
     'to'      => 'a',
-    'my'      => ['mon','mes'],
+    'my'      => ['ma','mes'],
     'my2'     => '',
     'house'   => ['maison','maisons'],
     'houses'  => '',

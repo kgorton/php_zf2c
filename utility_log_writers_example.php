@@ -42,3 +42,4 @@ if (!$fh) {
 $writer = new Stream($fh);
 */
 
+///
