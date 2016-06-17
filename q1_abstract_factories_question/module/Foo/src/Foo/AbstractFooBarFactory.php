@@ -6,7 +6,7 @@ use Zend\ServiceManager\ServiceLocatorInterface;
 
 class AbstractFooBarFactory implements AbstractFactoryInterface
 {
-    
+
     public function canCreateServiceWithName(ServiceLocatorInterface $serviceLocator,
                                                 $name,
                                                 $requestedName)
@@ -15,12 +15,12 @@ class AbstractFooBarFactory implements AbstractFactoryInterface
             return TRUE;
         }
     }
-    
+
     public function createServiceWithName(ServiceLocatorInterface $serviceLocator,
                                             $name,
                                             $requestedName)
     {
         return new \stdClass();
     }
-    
+
 }

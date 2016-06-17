@@ -7,14 +7,14 @@ use Foo\AbstractBazFactory;
 
 class Module
 {
-    
+
     public function onBootstrap(MvcEvent $e)
     {
         $eventManager        = $e->getApplication()->getEventManager();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
     }
-    
+
     public function getAutoloaderConfig()
     {
         return array(
@@ -25,7 +25,7 @@ class Module
             ),
         );
     }
-    
+
     public function getConfig()
     {
         return array(
@@ -43,21 +43,21 @@ class Module
         //'abstract_factories' => array(
         //    'AbstractBazFactory'
         //),
-         
+
         // this throws an exception because the return value *must* be an array!
         //array(
         //    'abstract_factories' => array(
         //        'AbstractBazFactory',
         //    ),
         //);
-        
+
         // let's assume this, with its fully qualified class name:
-        
+
         return array(
             'abstract_factories' => array(
                 AbstractBazFactory::class,
             ),
         );
     }
-    
+
 }
