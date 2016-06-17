@@ -1,5 +1,5 @@
 <?php
-namespace Foo;
+namespace Bar;
 
 use Zend\ServiceManager\AbstractFactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
@@ -9,7 +9,9 @@ class AbstractBazFactory implements AbstractFactoryInterface
     public function canCreateServiceWithName(ServiceLocatorInterface $serviceLocator, $name,  
         $requestedName)
     {
-        return TRUE;
+        if ($name === 'BarBaz') {
+            return TRUE;
+        }
     }
     
     public function createServiceWithName(ServiceLocatorInterface $serviceLocator, $name, 
